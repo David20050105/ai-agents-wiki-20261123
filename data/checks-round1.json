@@ -1,0 +1,80 @@
+{
+  "checked_at": "2026-11-23T11:22:12+08:00",
+  "passed": false,
+  "checks": [
+    {
+      "name": "來源數與去重",
+      "passed": true,
+      "detail": "6 篇獨立文件；轉址不增加篇數"
+    },
+    {
+      "name": "六篇 ingest 欄位與筆記",
+      "passed": true,
+      "detail": "原網址、最終網址、章節、短摘錄、摘要、限制均保存"
+    },
+    {
+      "name": "原文短摘錄長度",
+      "passed": true,
+      "detail": "每個來源的原文短摘錄不超過 25 個英文單字"
+    },
+    {
+      "name": "Wiki 主張與來源完整性",
+      "passed": true,
+      "detail": "8 項主張，來源 ID 存在且隸屬概念頁"
+    },
+    {
+      "name": "Wiki 交叉連結",
+      "passed": true,
+      "detail": "6 個概念頁的相關頁面 ID 均有效"
+    },
+    {
+      "name": "來源與子題覆蓋率",
+      "passed": true,
+      "detail": "概念頁 6/6；來源 6/6 至少被一頁使用；此為引用覆蓋，非語意評分"
+    },
+    {
+      "name": "頁數與逐頁引用",
+      "passed": true,
+      "detail": "12 頁，每頁都有 Wiki 與來源 ID"
+    },
+    {
+      "name": "檢索先於選材",
+      "passed": true,
+      "detail": "12 組關鍵詞查詢，選用的概念頁均在實際命中清單內"
+    },
+    {
+      "name": "渲染忠於逐頁稿",
+      "passed": true,
+      "detail": "逐頁 body_html 原樣出現一次；此檢查不判斷文意正確"
+    },
+    {
+      "name": "教學模擬明確標示",
+      "passed": true,
+      "detail": "互動案例與真實 run.json 分開"
+    },
+    {
+      "name": "本機檔案與錨點",
+      "passed": false,
+      "detail": "11 個 HTML 的 href/src 與錨點；錯誤：['report.html: data/checks.json']"
+    },
+    {
+      "name": "離線資產",
+      "passed": true,
+      "detail": "沒有 CDN、外部字型或執行階段模型 API 依賴；外部來源連結需連網"
+    },
+    {
+      "name": "負面測試：缺引用攔截",
+      "passed": true,
+      "detail": "僅在記憶體移除第 1 頁來源 ID；確認檢查器拒絕。故障注入，不是實際生成錯誤"
+    }
+  ],
+  "limitations": [
+    "Program checks do not prove semantic fidelity.",
+    "No independent AI review or separate human outline approval performed."
+  ],
+  "fault_injection": {
+    "type": "remove slide-1 source IDs in a copy",
+    "detected": true,
+    "production_data_unchanged": true
+  }
+}
